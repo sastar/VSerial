@@ -1,0 +1,38 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net8.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    <Platforms>x64;ARM64</Platforms>
+    <PlatformTarget>x64</PlatformTarget>
+    <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+    <AssemblyName>vserial-gui</AssemblyName>
+    <RootNamespace>VSerial.UI</RootNamespace>
+    <ApplicationTitle>VSerial Virtual COM Port Manager</ApplicationTitle>
+    <ApplicationIcon>Assets\vserial.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>none</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <PublishSingleFile>true</PublishSingleFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\vserial.png" />
+    <Resource Include="Assets\vserial.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\Core\VSerial.Core\VSerial.Core.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <!-- 自动携带驱动包至本地构建目录供调试使用，发布包由脚本统一部署 -->
+    <None Include="..\..\..\installer\driver\**" CopyToOutputDirectory="PreserveNewest" CopyToPublishDirectory="Never" Link="driver\%(RecursiveDir)%(Filename)%(Extension)" />
+  </ItemGroup>
+
+</Project>

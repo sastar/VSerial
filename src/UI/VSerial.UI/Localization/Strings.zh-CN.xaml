@@ -1,0 +1,117 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Application & Window Title -->
+    <system:String x:Key="App_Title">VSerial 虚拟串口管理器</system:String>
+    <system:String x:Key="App_ArchitectureBadge">UMDF 2.0</system:String>
+    <system:String x:Key="Badge_Admin">管理员</system:String>
+    <system:String x:Key="Badge_ReadOnly">只读权限</system:String>
+
+    <!-- Window Caption Controls -->
+    <system:String x:Key="Tip_Minimize">最小化</system:String>
+    <system:String x:Key="Tip_Maximize">最大化或还原</system:String>
+    <system:String x:Key="Tip_Close">关闭</system:String>
+
+    <!-- Standard Privilege Banner -->
+    <system:String x:Key="Warn_StandardPrivilege">当前以标准用户权限运行：可以查看端口状态，但创建、删除虚拟串口或安装驱动需要管理员权限。</system:String>
+    <system:String x:Key="Btn_RestartAsAdmin">以管理员身份重启</system:String>
+
+    <!-- Language Selector -->
+    <system:String x:Key="Label_Language">语言</system:String>
+
+    <!-- Toolbar Actions -->
+    <system:String x:Key="Btn_Refresh">刷新列表</system:String>
+    <system:String x:Key="Btn_CreatePair">新建虚拟串口对</system:String>
+    <system:String x:Key="Btn_DeleteSelected">删除选中项</system:String>
+    <system:String x:Key="Btn_DeleteAll">清空全部</system:String>
+    <system:String x:Key="Btn_InstallDriver">安装/修复驱动</system:String>
+    <system:String x:Key="Btn_UninstallDriver">卸载驱动</system:String>
+    <system:String x:Key="Tip_InstallDriver">安装驱动测试签名证书并将驱动预注入至系统 DriverStore</system:String>
+    <system:String x:Key="Tip_UninstallDriver">彻底卸载虚拟串口驱动及相关联的全部设备</system:String>
+
+    <!-- DataGrid Columns -->
+    <system:String x:Key="Col_PairId">配对组</system:String>
+    <system:String x:Key="Col_PortA">A 端串口 (Role 0)</system:String>
+    <system:String x:Key="Col_PortB">B 端串口 (Role 1)</system:String>
+    <system:String x:Key="Col_Status">运行状态</system:String>
+    <system:String x:Key="Col_Action">操作</system:String>
+    <system:String x:Key="Btn_DeleteRow">删除</system:String>
+    <system:String x:Key="Format_PairTag">配对 #{0}</system:String>
+
+    <!-- Individual Port Status -->
+    <system:String x:Key="Port_Running">正常运行</system:String>
+    <system:String x:Key="Port_ProblemCode">端口异常 (代码 {0})</system:String>
+    <system:String x:Key="Port_Stopped">未启动</system:String>
+
+    <!-- Port Pair Status -->
+    <system:String x:Key="Status_Normal">正常互联</system:String>
+    <system:String x:Key="Status_DeviceProblem">端口故障</system:String>
+    <system:String x:Key="Status_Incomplete">配对残缺</system:String>
+    <system:String x:Key="Status_Unknown">未知状态</system:String>
+
+    <!-- Empty State -->
+    <system:String x:Key="Empty_Title">当前暂无已创建的虚拟串口对</system:String>
+    <system:String x:Key="Empty_Desc">请点击顶部【新建虚拟串口对】按钮快速生成互联端口 (如 COM10 ↔ COM11)</system:String>
+
+    <!-- Status Bar & Driver Status -->
+    <system:String x:Key="Status_Ready">就绪</system:String>
+    <system:String x:Key="Status_Scanning">正在扫描系统串口与驱动状态...</system:String>
+    <system:String x:Key="Status_ScanSuccess">扫描完成，共检测到 {0} 对虚拟串口</system:String>
+    <system:String x:Key="Status_ScanFailed">刷新失败: {0}</system:String>
+    <system:String x:Key="Status_LastUpdated">最后更新: </system:String>
+    <system:String x:Key="Status_NeverUpdated">尚未刷新</system:String>
+
+    <system:String x:Key="Driver_Running_Format">驱动已正常加载并运行 (当前承载 {0} 对虚拟串口)</system:String>
+    <system:String x:Key="Driver_InstalledIdle_Pairs_Format">检测到 {0} 对已配置虚拟串口，但设备尚未就绪</system:String>
+    <system:String x:Key="Driver_InstalledIdle_NoPairs">驱动安装包就绪，当前暂无已创建的虚拟串口对</system:String>
+    <system:String x:Key="Driver_NotInstalled">系统尚未安装 VirtualSerial2um 虚拟串口驱动</system:String>
+    <system:String x:Key="Driver_Detecting">驱动检测中...</system:String>
+
+    <!-- Create Pair Dialog -->
+    <system:String x:Key="Title_CreateDialog">新建虚拟串口对</system:String>
+    <system:String x:Key="Create_BannerTip">系统将自动配置并启动一对全双工虚拟 COM 端口，数据写入 A 端即可无缝从 B 端全双工接收，反之亦然。</system:String>
+    <system:String x:Key="Create_PairIdLabel">配对组标识 (ID):</system:String>
+    <system:String x:Key="Create_PortALabel">A 端端口 (Role 0)</system:String>
+    <system:String x:Key="Create_PortBLabel">B 端端口 (Role 1)</system:String>
+    <system:String x:Key="Btn_Cancel">取消</system:String>
+    <system:String x:Key="Btn_CreateNow">立即创建</system:String>
+
+    <!-- Form Validation Messages -->
+    <system:String x:Key="Val_PortEmpty">端口 A 与端口 B 名称均不能为空。</system:String>
+    <system:String x:Key="Val_PortInvalid">端口名称格式必须为 COMx (例如 COM10)。</system:String>
+    <system:String x:Key="Val_PortSame">互联对的两端端口名称不能相同。</system:String>
+    <system:String x:Key="Val_PairIdInvalid">配对组 ID 必须为 1 到 255 之间的正整数。</system:String>
+    <system:String x:Key="Val_PortOccupied">端口名称 '{0}' 已被系统中其他设备占用。</system:String>
+
+    <!-- Dialogs & Prompts -->
+    <system:String x:Key="Prompt_Confirm">确认操作</system:String>
+    <system:String x:Key="Prompt_Alert">操作提示</system:String>
+    <system:String x:Key="Prompt_Error">错误提示</system:String>
+    <system:String x:Key="Prompt_Success">操作成功</system:String>
+    <system:String x:Key="Prompt_Warning">危险操作确认</system:String>
+    <system:String x:Key="Btn_OK">确定</system:String>
+    <system:String x:Key="Dialog_GotIt">知道了</system:String>
+    <system:String x:Key="Dialog_ConfirmProceed">确认继续</system:String>
+
+    <!-- ViewModel Async Operations & Messages -->
+    <system:String x:Key="Msg_CreatingPair">正在生成虚拟串口对 [Pair {0}] {1} &lt;-&gt; {2}...</system:String>
+    <system:String x:Key="Msg_CreatePairSuccess">成功创建虚拟串口对 {0} &lt;-&gt; {1}</system:String>
+    <system:String x:Key="Msg_CreatePairFailed">创建虚拟串口对失败</system:String>
+    <system:String x:Key="Msg_ConfirmDeletePair">确定要彻底删除虚拟串口对 [Pair {0}] {1} 吗？&#x0a;删除后该串口对将从 Windows 设备管理器中注销。</system:String>
+    <system:String x:Key="Msg_DeletingPair">正在安全注销配对 [Pair {0}] {1}...</system:String>
+    <system:String x:Key="Msg_DeletePairSuccess">已删除配对 [Pair {0}] {1}</system:String>
+    <system:String x:Key="Msg_DeletePairFailed">删除失败: {0}</system:String>
+    <system:String x:Key="Msg_ConfirmDeleteAll">警告：此操作将彻底删除系统中现有的全部 {0} 对虚拟串口！&#x0a;是否继续？</system:String>
+    <system:String x:Key="Msg_DeletingAll">正在批量注销所有虚拟串口设备节点...</system:String>
+    <system:String x:Key="Msg_DeleteAllSuccess">已成功清空所有虚拟串口。</system:String>
+    <system:String x:Key="Msg_DeleteAllFailed">清空失败: {0}</system:String>
+    <system:String x:Key="Msg_InstallingDriver">正在安装驱动证书并预安装驱动至 DriverStore...</system:String>
+    <system:String x:Key="Msg_DriverInstallSuccess">虚拟串口驱动与测试根证书已成功注册并安装到 Windows DriverStore！</system:String>
+    <system:String x:Key="Msg_DriverInstallFailed">驱动安装失败: {0}</system:String>
+    <system:String x:Key="Msg_ConfirmUninstallDriver">警告：卸载驱动将自动级联清理当前所有虚拟串口设备，并从系统驱动存储区彻底注销驱动！&#x0a;是否继续？</system:String>
+    <system:String x:Key="Msg_UninstallingDriver">正在级联移除虚拟设备并卸载驱动程序包...</system:String>
+    <system:String x:Key="Msg_DriverUninstallSuccess">驱动程序包及所有关联的虚拟串口设备已完全从系统中卸载。</system:String>
+    <system:String x:Key="Msg_DriverUninstallFailed">驱动卸载失败: {0}</system:String>
+
+</ResourceDictionary>

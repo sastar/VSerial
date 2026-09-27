@@ -1,0 +1,117 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <!-- Application & Window Title -->
+    <system:String x:Key="App_Title">VSerial Virtual COM Port Manager</system:String>
+    <system:String x:Key="App_ArchitectureBadge">UMDF 2.0</system:String>
+    <system:String x:Key="Badge_Admin">Administrator</system:String>
+    <system:String x:Key="Badge_ReadOnly">Standard User</system:String>
+
+    <!-- Window Caption Controls -->
+    <system:String x:Key="Tip_Minimize">Minimize</system:String>
+    <system:String x:Key="Tip_Maximize">Maximize or Restore</system:String>
+    <system:String x:Key="Tip_Close">Close</system:String>
+
+    <!-- Standard Privilege Banner -->
+    <system:String x:Key="Warn_StandardPrivilege">Standard user mode: Viewing ports is allowed, but modifying ports or driver requires administrator privileges.</system:String>
+    <system:String x:Key="Btn_RestartAsAdmin">Restart as Administrator</system:String>
+
+    <!-- Language Selector -->
+    <system:String x:Key="Label_Language">Language</system:String>
+
+    <!-- Toolbar Actions -->
+    <system:String x:Key="Btn_Refresh">Refresh</system:String>
+    <system:String x:Key="Btn_CreatePair">New Port Pair</system:String>
+    <system:String x:Key="Btn_DeleteSelected">Delete Selected</system:String>
+    <system:String x:Key="Btn_DeleteAll">Clear All</system:String>
+    <system:String x:Key="Btn_InstallDriver">Install/Repair Driver</system:String>
+    <system:String x:Key="Btn_UninstallDriver">Uninstall Driver</system:String>
+    <system:String x:Key="Tip_InstallDriver">Install test signing certificate and pre-inject driver into Windows DriverStore</system:String>
+    <system:String x:Key="Tip_UninstallDriver">Completely uninstall virtual serial driver and remove all associated device nodes</system:String>
+
+    <!-- DataGrid Columns -->
+    <system:String x:Key="Col_PairId">Pair ID</system:String>
+    <system:String x:Key="Col_PortA">Port A (Role 0)</system:String>
+    <system:String x:Key="Col_PortB">Port B (Role 1)</system:String>
+    <system:String x:Key="Col_Status">Status</system:String>
+    <system:String x:Key="Col_Action">Action</system:String>
+    <system:String x:Key="Btn_DeleteRow">Delete</system:String>
+    <system:String x:Key="Format_PairTag">Pair #{0}</system:String>
+
+    <!-- Individual Port Status -->
+    <system:String x:Key="Port_Running">Running OK</system:String>
+    <system:String x:Key="Port_ProblemCode">Error (Code {0})</system:String>
+    <system:String x:Key="Port_Stopped">Stopped</system:String>
+
+    <!-- Port Pair Status -->
+    <system:String x:Key="Status_Normal">Ready</system:String>
+    <system:String x:Key="Status_DeviceProblem">Port Fault</system:String>
+    <system:String x:Key="Status_Incomplete">Incomplete</system:String>
+    <system:String x:Key="Status_Unknown">Unknown</system:String>
+
+    <!-- Empty State -->
+    <system:String x:Key="Empty_Title">No Virtual COM Port Pairs</system:String>
+    <system:String x:Key="Empty_Desc">Click 'New Port Pair' above to quickly generate interconnected ports (e.g., COM10 ↔ COM11)</system:String>
+
+    <!-- Status Bar & Driver Status -->
+    <system:String x:Key="Status_Ready">Ready</system:String>
+    <system:String x:Key="Status_Scanning">Scanning system ports and driver status...</system:String>
+    <system:String x:Key="Status_ScanSuccess">Scan complete: {0} virtual port pair(s) detected</system:String>
+    <system:String x:Key="Status_ScanFailed">Refresh failed: {0}</system:String>
+    <system:String x:Key="Status_LastUpdated">Last updated: </system:String>
+    <system:String x:Key="Status_NeverUpdated">Not refreshed yet</system:String>
+
+    <system:String x:Key="Driver_Running_Format">Driver active ({0} port pair(s) loaded)</system:String>
+    <system:String x:Key="Driver_InstalledIdle_Pairs_Format">{0} port pair(s) found, devices not ready</system:String>
+    <system:String x:Key="Driver_InstalledIdle_NoPairs">Driver ready. No virtual port pairs created</system:String>
+    <system:String x:Key="Driver_NotInstalled">VirtualSerial2um driver is not installed</system:String>
+    <system:String x:Key="Driver_Detecting">Detecting driver...</system:String>
+
+    <!-- Create Pair Dialog -->
+    <system:String x:Key="Title_CreateDialog">Create Virtual COM Port Pair</system:String>
+    <system:String x:Key="Create_BannerTip">The system will configure and activate a pair of full-duplex virtual COM ports. Data written to Port A is seamlessly received on Port B in full duplex, and vice versa.</system:String>
+    <system:String x:Key="Create_PairIdLabel">Pair ID (Group):</system:String>
+    <system:String x:Key="Create_PortALabel">Port A (Role 0)</system:String>
+    <system:String x:Key="Create_PortBLabel">Port B (Role 1)</system:String>
+    <system:String x:Key="Btn_Cancel">Cancel</system:String>
+    <system:String x:Key="Btn_CreateNow">Create Now</system:String>
+
+    <!-- Form Validation Messages -->
+    <system:String x:Key="Val_PortEmpty">Port A and Port B names cannot be empty.</system:String>
+    <system:String x:Key="Val_PortInvalid">Port name must be in COMx format (e.g., COM10).</system:String>
+    <system:String x:Key="Val_PortSame">Port A and Port B must have different port names.</system:String>
+    <system:String x:Key="Val_PairIdInvalid">Pair ID must be a positive integer between 1 and 255.</system:String>
+    <system:String x:Key="Val_PortOccupied">Port name '{0}' is already in use by another hardware port or device.</system:String>
+
+    <!-- Dialogs & Prompts -->
+    <system:String x:Key="Prompt_Confirm">Confirmation</system:String>
+    <system:String x:Key="Prompt_Alert">Notice</system:String>
+    <system:String x:Key="Prompt_Error">Error</system:String>
+    <system:String x:Key="Prompt_Success">Success</system:String>
+    <system:String x:Key="Prompt_Warning">Warning</system:String>
+    <system:String x:Key="Btn_OK">OK</system:String>
+    <system:String x:Key="Dialog_GotIt">Got it</system:String>
+    <system:String x:Key="Dialog_ConfirmProceed">Proceed</system:String>
+
+    <!-- ViewModel Async Operations & Messages -->
+    <system:String x:Key="Msg_CreatingPair">Creating virtual serial port pair [Pair {0}] {1} &lt;-&gt; {2}...</system:String>
+    <system:String x:Key="Msg_CreatePairSuccess">Successfully created virtual serial port pair {0} &lt;-&gt; {1}</system:String>
+    <system:String x:Key="Msg_CreatePairFailed">Failed to create virtual serial port pair</system:String>
+    <system:String x:Key="Msg_ConfirmDeletePair">Are you sure you want to delete virtual COM port pair [Pair {0}] {1}?&#x0a;The pair will be unregistered from Windows Device Manager.</system:String>
+    <system:String x:Key="Msg_DeletingPair">Unregistering pair [Pair {0}] {1} safely...</system:String>
+    <system:String x:Key="Msg_DeletePairSuccess">Deleted pair [Pair {0}] {1}</system:String>
+    <system:String x:Key="Msg_DeletePairFailed">Delete failed: {0}</system:String>
+    <system:String x:Key="Msg_ConfirmDeleteAll">Warning: This will permanently remove all {0} virtual COM port pair(s) from the system!&#x0a;Do you wish to continue?</system:String>
+    <system:String x:Key="Msg_DeletingAll">Batch unregistering all virtual serial device nodes...</system:String>
+    <system:String x:Key="Msg_DeleteAllSuccess">All virtual serial port pairs have been removed.</system:String>
+    <system:String x:Key="Msg_DeleteAllFailed">Failed to clear virtual port pairs: {0}</system:String>
+    <system:String x:Key="Msg_InstallingDriver">Installing driver certificate and pre-injecting package into DriverStore...</system:String>
+    <system:String x:Key="Msg_DriverInstallSuccess">Virtual serial driver and test root certificate were successfully registered and installed in Windows DriverStore!</system:String>
+    <system:String x:Key="Msg_DriverInstallFailed">Driver installation failed: {0}</system:String>
+    <system:String x:Key="Msg_ConfirmUninstallDriver">Warning: Uninstalling the driver will cascade-remove all active virtual COM port devices and unregister the driver from DriverStore!&#x0a;Do you wish to continue?</system:String>
+    <system:String x:Key="Msg_UninstallingDriver">Cascading removal of virtual devices and driver package...</system:String>
+    <system:String x:Key="Msg_DriverUninstallSuccess">Virtual serial driver package and all associated hardware devices have been completely uninstalled.</system:String>
+    <system:String x:Key="Msg_DriverUninstallFailed">Driver uninstallation failed: {0}</system:String>
+
+</ResourceDictionary>

@@ -1,0 +1,106 @@
+;
+; Copyright (C) Microsoft Corporation, All Rights Reserved.
+;
+; VirtualSerial2um.inf
+;
+; Installation Notes:
+;    Type "devcon install VirtualSerial2um.inf UMDF\VirtualSerial2um" to install
+;
+; Important:
+;     This INF depends on features for the Driver Store DIRIDs which are available starting Windows 10 1803
+
+[Version]
+Signature="$Windows NT$"
+Class=Ports
+ClassGuid={4D36E978-E325-11CE-BFC1-08002BE10318}
+Provider=%ProviderString%
+CatalogFile=WUDF.cat
+DriverVer=03/25/2005,0.0.0.1
+PnpLockdown=1
+
+[Manufacturer]
+%ManufacturerString%=VSerialModels,NT$ARCH$.10.0...17134, NT$ARCH$.10.0...22000
+
+[VSerialModels.NT$ARCH$.10.0...17134]
+%VirtualSerialDeviceName%=VirtualSerial_Install,UMDF\VirtualSerial2um
+
+[VSerialModels.NT$ARCH$.10.0...22000]
+%VirtualSerialDeviceName%=VirtualSerial_Install_Win11,UMDF\VirtualSerial2um
+
+[DestinationDirs]
+DefaultDestDir = 13
+
+[SourceDisksFiles]
+Virtualserial2um.dll=1
+
+[SourceDisksNames]
+1 = %MediaDescription%
+
+; =================== UMDF VirtualSerial Device Win11 ============================
+[VirtualSerial_Install_Win11.NT]
+CopyFiles=UMDriverCopy
+Include=WUDFRD.inf
+Needs=WUDFRD.NT
+
+[VirtualSerial_Install_Win11.NT.hw]
+AddReg=SetDeviceType_AddReg
+Include=WUDFRD.inf
+Needs=WUDFRD.NT.HW
+
+[VirtualSerial_Install_Win11.NT.Services]
+Include=WUDFRD.inf
+Needs=WUDFRD.NT.Services
+
+[VirtualSerial_Install_Win11.NT.Wdf]
+UmdfService                 = VSerialService, VirtualSerial_Umdf_Install
+UmdfServiceOrder            = VSerialService
+UmdfKernelModeClientPolicy  = AllowKernelModeClients
+UmdfFileObjectPolicy        = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy      = CannotUseFsContexts
+
+; =================== UMDF VirtualSerial Device ==================================
+
+[VirtualSerial_Install.NT]
+CopyFiles=UMDriverCopy
+
+[VirtualSerial_Install.NT.hw]
+AddReg=SetDeviceType_AddReg
+
+[VirtualSerial_Install.NT.Services]
+AddService=WUDFRd,0x000001fa,WUDFRD_ServiceInstall
+
+[VirtualSerial_Install.NT.Wdf]
+UmdfService                 = VSerialService, VirtualSerial_Umdf_Install
+UmdfServiceOrder            = VSerialService
+UmdfKernelModeClientPolicy  = AllowKernelModeClients
+UmdfFileObjectPolicy        = AllowNullAndUnknownFileObjects
+UmdfFsContextUsePolicy      = CannotUseFsContexts
+
+[WUDFRD_ServiceInstall]
+DisplayName     = %WudfRdDisplayName%
+ServiceType     = 1
+StartType       = 3
+ErrorControl    = 1
+ServiceBinary   = %12%\WUDFRd.sys
+
+; =================== Shared Sections ============================================
+
+[VirtualSerial_Umdf_Install]
+UmdfLibraryVersion=$UMDFVERSION$
+ServiceBinary=%13%\Virtualserial2um.dll
+
+[SetDeviceType_AddReg]
+HKR,,DeviceType,0x10001,0x0000001b  ; 0x1b = FILE_DEVICE_SERIAL_PORT
+
+[UMDriverCopy]
+Virtualserial2um.dll
+
+; =================== Generic ==================================
+
+[Strings]
+ProviderString="VSerial"
+ManufacturerString="VSerial Project"
+MediaDescription="VSerial Driver Installation Media"
+WudfRdDisplayName="Windows Driver Foundation - User-mode Driver Framework Reflector"
+VirtualSerialDeviceName="VSerial Virtual COM Port"
+
